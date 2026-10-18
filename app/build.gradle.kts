@@ -79,18 +79,19 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("release.keystore")
-            storePassword = "WummYI50JGlsu8gTK8fCklcQTe+lGOXhxW/bF59Irkp2B/2WlwtUUAdW+MuUKGga"
-            keyAlias = "singbox-personal"
-            keyPassword = "WummYI50JGlsu8gTK8fCklcQTe+lGOXhxW/bF59Irkp2B/2WlwtUUAdW+MuUKGga"
+            storePassword = getProps("KEYSTORE_PASS")
+            keyAlias = getProps("ALIAS_NAME")
+            keyPassword = getProps("ALIAS_PASS")
         }
     }
 
     buildTypes {
         debug {
-//            if (getProps("KEYSTORE_PASS").isNotEmpty()) {
+            if (getProps("KEYSTORE_PASS").isNotEmpty()) {
                 signingConfig = signingConfigs.getByName("release")
-//            }
+            }
         }
+
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
