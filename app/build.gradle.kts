@@ -389,6 +389,7 @@ tasks.withType<KotlinCompile>().configureEach {
     }
 }
 
+/*
 spotless {
     kotlin {
         target("src/**/*.kt")
@@ -407,3 +408,4 @@ spotless {
         googleJavaFormat()
     }
 }
+*/
