@@ -79,9 +79,9 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("release.keystore")
-            storePassword = getProps("KEYSTORE_PASS")
-            keyAlias = getProps("ALIAS_NAME")
-            keyPassword = getProps("ALIAS_PASS")
+            storePassword = System.getenv("KEYSTORE_PASS")
+            keyAlias = System.getenv("ALIAS_NAME")
+            keyPassword = System.getenv("ALIAS_PASS")
         }
     }
 
@@ -93,7 +93,7 @@ android {
         }
 
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
             vcsInfo.include = false
