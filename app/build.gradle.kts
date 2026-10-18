@@ -15,7 +15,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("com.github.triplet.play")
-    alias(libs.plugins.spotless)
+//    alias(libs.plugins.spotless)
 }
 
 fun getProps(propName: String): String {
@@ -79,17 +79,17 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("release.keystore")
-            storePassword = getProps("KEYSTORE_PASS")
-            keyAlias = getProps("ALIAS_NAME")
-            keyPassword = getProps("ALIAS_PASS")
+            storePassword = "WummYI50JGlsu8gTK8fCklcQTe+lGOXhxW/bF59Irkp2B/2WlwtUUAdW+MuUKGga"
+            keyAlias = "singbox-personal"
+            keyPassword = "WummYI50JGlsu8gTK8fCklcQTe+lGOXhxW/bF59Irkp2B/2WlwtUUAdW+MuUKGga"
         }
     }
 
     buildTypes {
         debug {
-            if (getProps("KEYSTORE_PASS").isNotEmpty()) {
+//            if (getProps("KEYSTORE_PASS").isNotEmpty()) {
                 signingConfig = signingConfigs.getByName("release")
-            }
+//            }
         }
         release {
             isMinifyEnabled = true
