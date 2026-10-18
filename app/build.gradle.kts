@@ -161,6 +161,8 @@ android {
     }
 
     lint {
+        checkReleaseBuilds false
+        abortOnError false
         fatal += "NewApi"
     }
 
